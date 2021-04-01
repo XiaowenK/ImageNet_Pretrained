@@ -2,6 +2,8 @@
 
 This project will introduced how to use ImageNet dataset to pretrained a model step by step. My implementation is mainly based on Pytorch. This repo will be a work in progress and I will keep on updating.
 
+In this repo, I will go over how to get and prepare the ImageNet dataset.
+
 Furthermore, for more details, please visit my [blog](https://www.cnblogs.com/hmlovetech/).
 
 **WIP**
@@ -24,6 +26,7 @@ ILSVRC2012:
 # How to use?
 ### Dependencies
 WIP
+Please also install the [Nvidia apex module](https://github.com/NVIDIA/apex) to speeding up the training and saving GPU memory.
 ### Prepare the data
 First, download the dataset above and put them into the /database folder. Then unzip them in the /database folder by following commands:
 ```
@@ -54,7 +57,15 @@ Finally, we still have to unzip .tar files in train/ and organize all val images
 ```
 python3 preprocess_ilsvrc2012.py
 ```
+Before start training, 5-fold txt files should be prepared by following command:
+```
+python3 gen_txt.py
+```
+The test set is split from 20% of the train set.
 ### Training
+```
+python3 train.py "AlexNet" 0
+```
 WIP
 ### Testing
 WIP
